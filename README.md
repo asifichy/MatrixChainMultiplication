@@ -102,3 +102,8 @@ For each one of entry we need find minimum number of multiplications taking wors
 Finally O (n2) * O (n) = O (n3) is time complexity.
 
 
+Output - (is shown in minimum multiplications)
+
+
+![Screenshot 2021-11-30 162518](https://user-images.githubusercontent.com/68398397/144030123-ae8ec908-fcab-4595-a866-a9f548f5fcf5.png)
+
