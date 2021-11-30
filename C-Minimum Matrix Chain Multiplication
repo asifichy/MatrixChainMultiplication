@@ -1,0 +1,60 @@
+Here the result is shown using minimun multiplication in matrix chain multiplication algorithm.
+
+#include<stdio.h>
+#include<limits.h>
+
+int matrixChainMultiplication(int array[], int num)
+{
+    int array1[num][num];
+    int l, q;
+
+    for(int i=1; i<num; i++)
+    {
+        array1[i][i] = 0;
+    }
+
+    for(int j=2; j<num; j++)
+    {
+        for(int i=1; i<num-j+1; i++)
+        {
+            l = i+j-1;
+            array1[i][l] = INT_MAX;
+
+            for(int k=i; k<=l-1; k++)
+            {
+                q = array1[i][k] + array1[k+1][l] + array[i-1]*array[k]*array[l];
+
+                if(q < array1[i][l])
+                {
+                    array1[i][l] = q;
+                }
+            }
+        }
+    }
+    return array1[1][num-1];
+}
+
+int main()
+{
+    int num;
+
+    printf("Enter number of dimensions: ");
+    scanf("%d", &num);
+
+    num++;
+
+    int array[num];
+
+    printf("\nEnter dimensions wisely.\n");
+
+    for(int i=0; i<num; i++)
+    {
+        scanf("%d", &array[i]);
+    }
+
+    int size = sizeof(array) / sizeof(array[0]);
+
+    printf("\nNumber of Multiplications is: %d\n", matrixChainMultiplication(array, size));
+
+    return 0;
+}
